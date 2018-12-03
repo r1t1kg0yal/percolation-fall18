@@ -8,22 +8,24 @@ public class PercolationUF implements IPercolate {
 
     /**
      * Initialize instance variables
-     * @param size - size of myGrid
-     * @param finder - IUnionFind object
+     * @param size is the size of myGrid
+     * @param finder is a IUnionFind object
      */
     public PercolationUF(int size, IUnionFind finder){
+    	
         VTOP = size * size;
         VBOTTOM = (size * size) + 1;
         myGrid = new boolean[size][size];
         finder.initialize((size * size) + 2);
         myFinder = finder;
+        
     }
 
     @Override
     /**
      * Return whether or not cell is open
-     * @param row - row of cell
-     * @param col - column of cell
+     * @param row is the row of cell
+     * @param col is the column of cell
      * @return boolean value of myGrid[row][col]
      */
     public boolean isOpen(int row, int col){
@@ -36,8 +38,8 @@ public class PercolationUF implements IPercolate {
     @Override
     /**
      * Return whether or not cell is full
-     * @param row - row of cell
-     * @param col - column of cell
+     * @param row is the row of cell
+     * @param col is the column of cell
      * @return boolean value of whether or not cell is connected to VTOP
      */
     public boolean isFull(int row, int col){
@@ -62,14 +64,6 @@ public class PercolationUF implements IPercolate {
      * @return myOpenCount
      */
     public int numberOfOpenSites(){
-        /*int sum = 0;
-        for (int i = 0; i < myGrid.length; i++){
-            for (int k = 0; k < myGrid[0].length; k++){
-                if (myGrid[i][k]){
-                    sum++;
-                }
-            }
-        }*/
         return myOpenCount;
     }
 
