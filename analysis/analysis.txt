@@ -1,22 +1,76 @@
-Your name
-Your netid
-
-Copy/Paste results from PercolationStats using PercolationDFS
-
+Ritik Goyal
+rpg15
 
 Copy/Paste results from PercolationStats using PercolationDFSFast
 
+simulation data for 20 trials
+grid	mean	stddev	time
+100		0.593	0.014	0.051
+200		0.591	0.010	0.085
+400		0.590	0.006	0.581
+800		0.594	0.004	3.710
+Exception in thread "main" java.lang.StackOverflowError
+	at PercolationDFS.dfs(PercolationDFS.java:109)
+	at PercolationDFS.dfs(PercolationDFS.java:109)
+	at PercolationDFS.dfs(PercolationDFS.java:109)
+	at PercolationDFS.dfs(PercolationDFS.java:109)
+	
 
 Copy/Paste results from PercolationStats using PercolationBFS
+
+simulation data for 20 trials
+grid	mean	stddev	time
+100		0.593	0.014	0.091
+200		0.591	0.010	0.143
+400		0.590	0.006	0.724
+800		0.594	0.004	4.085
+1600	0.592	0.002	22.146
+3200	0.593	0.001	128.514
 
 
 Copy/Paste results from PercolationStats using PercolationUF 
 with the QuickUWPC UnionFind implementation.
 
-1. How does doubling the grid size affect running time (keeping # trials fixed)
+simulation data for 20 trials
+grid	mean	stddev	time
+100		0.593	0.014	0.046
+200		0.591	0.010	0.078
+400		0.590	0.006	0.492
+800		0.594	0.004	2.926
+1600	0.592	0.002	14.254
+3200	0.593	0.001	74.004
 
+
+1. How does doubling the grid size affect running time (keeping # trials fixed)
+The running time increases by a factor of approx. 5 or 6 times
 
 2. How does doubling the number of trials affect running time.
+The runnning time increases by a factor of approx. 2 to 2.5 times
+
+simulation data for 40 trials
+grid	mean	stddev	time
+100		0.594	0.015	0.060
+200		0.591	0.009	0.193
+400		0.591	0.005	0.943
+800		0.593	0.004	6.345
+1600	0.593	0.002	31.217
+3200	0.593	0.001	167.172
 
 
 3. Estimate the largest grid size you can run in 24 hours with 20 trials. Explain your reasoning.
+60000
+
+Assuming the increase in running time increases by a factor of 5x every double in grid size,
+the results would continue as follows:
+
+grid		time
+3200		74		
+6400		370
+12800		1850
+25600		9250
+51200		46250
+102400		231250
+
+24 hours is equivalent to 86400 seconds, which means the grid would be between
+51200 and 102400 in size. The grid size can be approximated to about 60000,
+as 86400 is closer to 46250 than 231250.
